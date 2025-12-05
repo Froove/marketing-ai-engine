@@ -1,0 +1,3 @@
+# Ce dossier contiendra les poids du modèle LoRA après entraînement
+# Les fichiers .bin et .safetensors sont trop volumineux pour Git
+
