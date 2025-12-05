@@ -61,9 +61,9 @@ def main():
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
-            max_new_tokens=350,
+            max_new_tokens=700,   # on laisse plus de place pour fermer le JSON
             do_sample=True,
-            temperature=0.7,
+            temperature=0.5,      # un peu moins de blabla
         )
 
     raw = tokenizer.decode(outputs[0], skip_special_tokens=True)
