@@ -12,15 +12,14 @@ LORA_PATH = PROJECT_ROOT / "models" / "mistral-marketing-lora"
 
 SYSTEM_PROMPT = (
     "Tu es un expert marketing TikTok. "
-    "Tu reponds strictement avec UN SEUL objet JSON unique, valide et complet. "
-    "Tu n'as PAS le droit d'ecrire du texte en dehors du JSON. "
-    "Tu dois produire un seul objet JSON contenant tous les champs : "
-    "task, brand, platform, hook, script, cta, variants."
+    "Tu reponds strictement avec un objet JSON unique, valide et complet. "
+    "Aucun texte hors JSON n'est autorise. "
+    "Tu dois inclure dans cet objet les champs: task, brand, platform, hook, script, cta, variants."
 )
 
 
-def extract_first_json_object(text: str):
-    """Retourne la sous-chaine correspondant au premier objet JSON { ... } de niveau 0."""
+def extract_first_json_object(text: str) -> str | None:
+    """Retourne la sous-chaîne correspondant au premier objet JSON { ... } de niveau 0."""
     start = text.find("{")
     if start == -1:
         return None
@@ -52,8 +51,8 @@ def main():
     prompt = (
         SYSTEM_PROMPT
         + " Genere un script TikTok pour Froove en francais, "
-          "au format JSON unique avec les champs: task, brand, platform, "
-          "hook, script, cta, variants."
+        "au format JSON unique avec les champs: task, brand, platform, "
+        "hook, script, cta, variants."
     )
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
