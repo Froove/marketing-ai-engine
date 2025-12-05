@@ -38,7 +38,7 @@ def main():
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
-            max_new_tokens=250,
+            max_new_tokens=600,
             do_sample=True,
             temperature=0.7,
         )
