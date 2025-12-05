@@ -40,6 +40,18 @@ def extract_first_json_object(text: str) -> str | None:
     return text[start:end]
 
 
+def cleanup_json(json_str: str) -> str:
+    """
+    Supprime les lignes contenant '...' pour rendre l'objet JSON parsable.
+    """
+    lines = []
+    for line in json_str.splitlines():
+        if "..." in line:
+            continue
+        lines.append(line)
+    return "\n".join(lines)
+
+
 def main():
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL, use_fast=False)
     base_model = AutoModelForCausalLM.from_pretrained(
@@ -79,17 +91,17 @@ def main():
         print("[ERREUR] Aucun JSON detecte.")
         return
 
+    cleaned = cleanup_json(json_str)
+
     try:
-        obj = json.loads(json_str)
+        obj = json.loads(cleaned)
+        print("==== JSON PARSE ====")
+        print(json.dumps(obj, indent=2, ensure_ascii=False))
+        print("==== /JSON PARSE ====")
     except Exception as e:
         print("[ERREUR] Echec du parsing JSON :", e)
-        print("JSON brut :")
-        print(json_str)
-        return
-
-    print("==== JSON PARSE ====")
-    print(json.dumps(obj, ensure_ascii=False, indent=2))
-    print("==== /JSON PARSE ====")
+        print("\nJSON brut :")
+        print(cleaned)
 
 
 if __name__ == "__main__":
