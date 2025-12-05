@@ -8,6 +8,7 @@ import os
 import json
 import time
 import logging
+from .lora_engine import generate_tiktok_script
 
 # Setup Logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -187,6 +188,21 @@ async def generate_marketing(req: MarketingInput):
 @app.get("/health")
 def health_check():
     return {"status": "active", "gpu": torch.cuda.is_available()}
+
+
+class ScriptRequest(BaseModel):
+    brand: str = "Froove"
+    platform: str = "tiktok"
+    audience: str | None = None
+    tone: str | None = None
+    angle_main: str | None = None
+
+
+@app.post("/generate-script")
+def generate_script(body: ScriptRequest):
+    params = body.dict()
+    script = generate_tiktok_script(params)
+    return script
 
 if __name__ == "__main__":
     import uvicorn
