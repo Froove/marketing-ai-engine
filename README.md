@@ -10,6 +10,7 @@ Ce projet permet de fine-tuner un modèle de langage (LLM) sur des données mark
 - `models/` : Dossier de destination pour les poids du modèle LoRA après entraînement.
 - `training/` : Scripts pour lancer le fine-tuning.
 - `api/` : Serveur FastAPI pour utiliser le modèle en inférence.
+- `landing/` : Landing page Hooksmith AI avec démo live intégrée.
 
 ## Prérequis
 
@@ -66,9 +67,33 @@ L'API sera accessible sur `http://localhost:8000`.
 Exemple de requête (avec curl) :
 
 ```bash
-curl -X POST "http://localhost:8000/generate" \
+curl -X POST "http://localhost:8000/generate-script" \
      -H "Content-Type: application/json" \
-     -d '{"prompt": "Instruction: Écris un slogan pour une agence de voyage.", "max_length": 100}'
+     -d '{
+       "brand": "Froove",
+       "platform": "tiktok",
+       "audience": "étudiantes 18-22 FR",
+       "tone": "trend « that girl but »",
+       "angle_main": "that girl mais sans argent"
+     }'
+```
+
+### 5. Lancer la landing page Hooksmith AI
+
+Pour tester la landing page avec démo live :
+
+```bash
+cd landing
+python3 serve.py
+```
+
+Puis ouvrez http://localhost:8080 dans votre navigateur.
+
+La landing page est également accessible via un serveur HTTP simple :
+
+```bash
+cd landing
+python3 -m http.server 8080
 ```
 
 ## Notes

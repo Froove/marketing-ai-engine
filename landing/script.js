@@ -4,7 +4,10 @@ function scrollToDemo() {
 }
 
 // API endpoint (à adapter selon votre configuration)
-const API_URL = 'http://localhost:8000/generate-script';
+// Pour la production, changez cette URL vers votre serveur API
+const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000/generate-script'
+    : 'https://votre-api.com/generate-script';
 
 // Form submission
 document.getElementById('script-form').addEventListener('submit', async (e) => {
