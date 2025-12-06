@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hooksmith AI - Générateur IA de Scripts TikTok & Instagram</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Hooksmith AI</div>
+                <div class="nav-links">
+                    <a href="#demo">Démo Live</a>
+                    <a href="#features">Fonctionnalités</a>
+                    <a href="#pricing">Tarifs</a>
+                    <button class="btn-primary">Commencer</button>
+                </div>
+            </nav>
+            
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Générez des <span class="gradient-text">hooks viraux</span><br>
+                    en quelques secondes
+                </h1>
+                <p class="hero-subtitle">
+                    L'IA qui transforme vos idées en scripts TikTok & Instagram prêts à tourner.
+                    Testé par des créateurs avec des millions de vues.
+                </p>
+                <div class="hero-cta">
+                    <button class="btn-large" onclick="scrollToDemo()">Essayer gratuitement</button>
+                    <button class="btn-secondary" onclick="scrollToDemo()">Voir la démo</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Scripts générés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2.5M+</div>
+                        <div class="stat-label">Vues générées</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Taux de satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 class="section-title">Démo Live</h2>
+            <p class="section-subtitle">Générez votre premier script en 30 secondes</p>
+            
+            <div class="demo-container">
+                <div class="demo-input">
+                    <h3>Paramètres de votre script</h3>
+                    <form id="script-form">
+                        <div class="form-group">
+                            <label>Marque</label>
+                            <select id="brand" required>
+                                <option value="Froove">Froove</option>
+                                <option value="Bridgely">Bridgely</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Plateforme</label>
+                            <select id="platform" required>
+                                <option value="tiktok">TikTok</option>
+                                <option value="instagram">Instagram Reels</option>
+                                <option value="youtube">YouTube Shorts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Audience</label>
+                            <input type="text" id="audience" placeholder="Ex: étudiantes 18-22 FR" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Tone</label>
+                            <input type="text" id="tone" placeholder="Ex: trend « that girl but »" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Angle principal</label>
+                            <input type="text" id="angle_main" placeholder="Ex: that girl mais sans argent">
+                        </div>
+                        <button type="submit" class="btn-generate" id="generate-btn">
+                            <span class="btn-text">Générer le script</span>
+                            <span class="btn-loader" style="display: none;">⏳ Génération...</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="demo-output">
+                    <h3>Résultat</h3>
+                    <div id="output-container" class="output-placeholder">
+                        <div class="placeholder-content">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                            <p>Votre script apparaîtra ici</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Pourquoi Hooksmith AI ?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Génération instantanée</h3>
+                    <p>Obtenez des scripts prêts à tourner en moins de 10 secondes. Plus besoin de passer des heures à brainstormer.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Optimisé pour la viralité</h3>
+                    <p>Notre IA a été entraînée sur des milliers de scripts qui ont généré des millions de vues. Elle connaît ce qui marche.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multi-plateformes</h3>
+                    <p>TikTok, Instagram Reels, YouTube Shorts. Adaptez votre contenu à chaque plateforme automatiquement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Personnalisation totale</h3>
+                    <p>Choisissez votre tone, votre audience, vos angles. L'IA s'adapte à votre style unique.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics intégrés</h3>
+                    <p>Chaque script inclut des scores de viralité prédits et des recommandations d'optimisation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Variantes infinies</h3>
+                    <p>Générez plusieurs variantes d'un même script pour tester ce qui fonctionne le mieux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Tarifs simples</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">Gratuit</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>10 scripts/mois</li>
+                        <li>Génération basique</li>
+                        <li>Support communautaire</li>
+                    </ul>
+                    <button class="btn-pricing">Commencer</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">Populaire</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">29€<span>/mois</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Scripts illimités</li>
+                        <li>Génération avancée</li>
+                        <li>Variantes multiples</li>
+                        <li>Analytics détaillés</li>
+                        <li>Support prioritaire</li>
+                    </ul>
+                    <button class="btn-pricing btn-primary">Essayer 7 jours</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">Sur mesure</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Tout Pro +</li>
+                        <li>API dédiée</li>
+                        <li>Fine-tuning personnalisé</li>
+                        <li>Support dédié</li>
+                    </ul>
+                    <button class="btn-pricing">Nous contacter</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">Hooksmith AI</div>
+                    <p>L'IA qui transforme vos idées en contenu viral.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Produit</h4>
+                        <a href="#demo">Démo</a>
+                        <a href="#features">Fonctionnalités</a>
+                        <a href="#pricing">Tarifs</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Ressources</h4>
+                        <a href="#">Documentation</a>
+                        <a href="#">API</a>
+                        <a href="#">Blog</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="#">Contact</a>
+                        <a href="#">FAQ</a>
+                        <a href="#">Discord</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hooksmith AI. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
